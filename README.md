@@ -61,7 +61,7 @@ Desktop launcher for downloading updates, checking server status, managing game 
 
 <img height="165" src="https://github-readme-stats.vercel.app/api?username=YeeePRO&show_icons=true&theme=github_dark&hide_border=true" alt="GitHub Stats">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YeeePRO&layout=compact&theme=github_dark&hide_border=true" alt="Top Languages">
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YeeeePRO&layout=compact&theme=github_dark&hide_border=true" alt="Top Languages">
 
 </div>
 
