@@ -90,6 +90,4 @@ Desktop launcher for downloading updates, checking server status, managing game 
 > ✨ *“Every line of code is a seed. Plant it, nurture it, and let it grow.”*
 '''
 
-path = Path("/mnt/data/README.md")
-path.write_text(readme, encoding="utf-8")
-print(f"Created: {path}")
+🌐 [Buka Website Portofolio](https://yeeeepro.github.io)
