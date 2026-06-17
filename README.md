@@ -85,7 +85,6 @@ Desktop launcher for downloading updates, checking server status, managing game 
   </a>
 </p>
 
-🌐 [Buka Website Portofolio](https://yeeeepro.github.io)
 ---
 
 > ✨ *“Every line of code is a seed. Plant it, nurture it, and let it grow.”*
