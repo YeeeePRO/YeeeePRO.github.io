@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Portofolio YeeeePRO sebagai developer SA-MP, website, Discord Bot, dan aplikasi."
+    >
+
+    <title>YeeeePRO | Developer Portfolio</title>
+
+    <style>
+        :root {
+            --background: #070b14;
+            --background-soft: #0d1320;
+            --card: rgba(17, 25, 40, 0.72);
+            --card-hover: rgba(25, 35, 55, 0.9);
+            --primary: #58a6ff;
+            --secondary: #8b5cf6;
+            --success: #3fb950;
+            --text: #f0f6fc;
+            --text-soft: #9da7b3;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            background: var(--background);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(88, 166, 255, 0.15),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(139, 92, 246, 0.13),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 50% 90%,
+                    rgba(63, 185, 80, 0.08),
+                    transparent 30%
+                );
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 88%);
+            margin: auto;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+
+            background: rgba(7, 11, 20, 0.75);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-container {
+            min-height: 72px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--text);
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1px solid rgba(88, 166, 255, 0.35);
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(88, 166, 255, 0.25),
+                    rgba(139, 92, 246, 0.2)
+                );
+
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 10px 14px;
+            border-radius: 9px;
+
+            color: var(--text-soft);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .menu-button {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+
+            cursor: pointer;
+        }
+
+        section {
+            padding: 105px 0;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 130px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .status {
+            width: fit-content;
+
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            margin-bottom: 22px;
+            padding: 8px 13px;
+
+            border: 1px solid rgba(63, 185, 80, 0.25);
+            border-radius: 999px;
+
+            background: rgba(63, 185, 80, 0.08);
+            color: #76d887;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+            background: var(--success);
+
+            box-shadow: 0 0 14px var(--success);
+
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .hero-label {
+            margin: 0 0 12px;
+
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+
+            font-size: clamp(52px, 8vw, 88px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    #a78bfa,
+                    #67e8f9
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 680px;
+
+            margin: 25px 0 0;
+
+            color: var(--text-soft);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .hero-description strong {
+            color: var(--text);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+
+            margin-top: 32px;
+        }
+
+        .button {
+            min-height: 48px;
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+
+            padding: 0 21px;
+
+            border: 1px solid transparent;
+            border-radius: 11px;
+
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+
+            transition:
+                transform 0.25s,
+                background 0.25s,
+                border-color 0.25s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        .button-primary {
+            background:
+                linear-gradient(
+                    135deg,
+                    #2388ff,
+                    #7657ff
+                );
+
+            color: white;
+
+            box-shadow: 0 13px 35px rgba(88, 120, 255, 0.28);
+        }
+
+        .button-secondary {
+            border-color: var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+        }
+
+        .button-secondary:hover {
+            border-color: rgba(88, 166, 255, 0.45);
+            background: rgba(88, 166, 255, 0.08);
+        }
+
+        .terminal {
+            position: relative;
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            background: rgba(9, 14, 24, 0.85);
+            box-shadow: var(--shadow);
+
+            transform: rotate(1.5deg);
+            transition: transform 0.35s;
+        }
+
+        .terminal:hover {
+            transform: rotate(0deg) translateY(-6px);
+        }
+
+        .terminal::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            z-index: -1;
+
+            border-radius: inherit;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(88, 166, 255, 0.4),
+                    transparent,
+                    rgba(139, 92, 246, 0.35)
+                );
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 16px 18px;
+
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot-red {
+            background: #ff5f57;
+        }
+
+        .dot-yellow {
+            background: #febc2e;
+        }
+
+        .dot-green {
+            background: #28c840;
+        }
+
+        .terminal-title {
+            margin-left: auto;
+            margin-right: auto;
+
+            color: #7d8590;
+            font-size: 12px;
+        }
+
+        .terminal-content {
+            min-height: 330px;
+            padding: 28px;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .terminal-line {
+            margin: 0 0 7px;
+        }
+
+        .terminal-blue {
+            color: #79c0ff;
+        }
+
+        .terminal-purple {
+            color: #d2a8ff;
+        }
+
+        .terminal-green {
+            color: #7ee787;
+        }
+
+        .terminal-gray {
+            color: #8b949e;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+
+            width: 8px;
+            height: 17px;
+
+            vertical-align: middle;
+            background: var(--primary);
+
+            animation: blink 0.9s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .section-header {
+            max-width: 680px;
+            margin-bottom: 46px;
+        }
+
+        .section-label {
+            display: inline-block;
+            margin-bottom: 12px;
+
+            color: var(--primary);
+
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin: 0 0 16px;
+
+            font-size: clamp(34px, 5vw, 50px);
+            letter-spacing: -2px;
+        }
+
+        .section-description {
+            margin: 0;
+
+            color: var(--text-soft);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 28px;
+        }
+
+        .glass-card {
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            background: var(--card);
+            backdrop-filter: blur(12px);
+
+            box-shadow: var(--shadow);
+        }
+
+        .about-card {
+            padding: 32px;
+        }
+
+        .about-card p {
+            margin: 0 0 18px;
+
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-card strong {
+            color: var(--text);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .stat {
+            min-height: 140px;
+            padding: 24px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(88, 166, 255, 0.09),
+                    rgba(139, 92, 246, 0.05)
+                );
+
+            transition:
+                transform 0.25s,
+                border-color 0.25s;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            border-color: rgba(88, 166, 255, 0.4);
+        }
+
+        .stat-number {
+            color: var(--primary);
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .stat-text {
+            margin-top: 7px;
+
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+
+            min-height: 370px;
+            padding: 28px;
+
+            display: flex;
+            flex-direction: column;
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            background: var(--card);
+
+            transition:
+                transform 0.3s,
+                border-color 0.3s,
+                background 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-9px);
+            border-color: rgba(88, 166, 255, 0.4);
+            background: var(--card-hover);
+        }
+
+        .project-card::after {
+            content: "";
+            position: absolute;
+            top: -70px;
+            right: -70px;
+
+            width: 160px;
+            height: 160px;
+
+            border-radius: 50%;
+
+            background: rgba(88, 166, 255, 0.12);
+            filter: blur(10px);
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover::after {
+            transform: scale(1.3);
+        }
+
+        .project-top {
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-icon {
+            width: 51px;
+            height: 51px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1px solid rgba(88, 166, 255, 0.25);
+            border-radius: 14px;
+
+            background: rgba(88, 166, 255, 0.1);
+
+            font-size: 23px;
+        }
+
+        .project-number {
+            color: rgba(255, 255, 255, 0.17);
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .project-card h3 {
+            position: relative;
+            z-index: 1;
+
+            margin: 27px 0 12px;
+
+            font-size: 22px;
+        }
+
+        .project-card p {
+            position: relative;
+            z-index: 1;
+
+            margin: 0 0 22px;
+
+            color: var(--text-soft);
+            line-height: 1.75;
+        }
+
+        .tags {
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-bottom: 26px;
+        }
+
+        .tag {
+            padding: 7px 10px;
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, 0.035);
+            color: #b7c0ca;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .project-link {
+            position: relative;
+            z-index: 1;
+
+            margin-top: auto;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-group {
+            padding: 28px;
+        }
+
+        .skill-group h3 {
+            margin: 0 0 20px;
+            font-size: 19px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 10px 14px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: rgba(255, 255, 255, 0.035);
+            color: #c6d0da;
+
+            font-size: 13px;
+            font-weight: 650;
+
+            transition: 0.25s;
+        }
+
+        .skill:hover {
+            transform: translateY(-3px);
+
+            border-color: rgba(88, 166, 255, 0.45);
+            background: rgba(88, 166, 255, 0.08);
+            color: var(--text);
+        }
+
+        .contact-card {
+            position: relative;
+            overflow: hidden;
+
+            padding: 55px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 35px;
+
+            border: 1px solid rgba(88, 166, 255, 0.25);
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(88, 166, 255, 0.12),
+                    rgba(139, 92, 246, 0.1)
+                );
+        }
+
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -80px;
+
+            width: 280px;
+            height: 280px;
+
+            border-radius: 50%;
+
+            background: rgba(88, 166, 255, 0.13);
+            filter: blur(20px);
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-content h2 {
+            margin: 0 0 14px;
+
+            font-size: clamp(32px, 5vw, 47px);
+            letter-spacing: -2px;
+        }
+
+        .contact-content p {
+            max-width: 650px;
+
+            margin: 0;
+
+            color: var(--text-soft);
+            line-height: 1.75;
+        }
+
+        .contact-actions {
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+
+            min-width: 210px;
+        }
+
+        .copy-button {
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 32px 0;
+
+            border-top: 1px solid var(--border);
+            color: var(--text-soft);
+
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-content strong {
+            color: var(--text);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-grid {
+                gap: 45px;
+            }
+
+            .terminal {
+                transform: none;
+            }
+
+            .projects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-card {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .contact-actions {
+                width: 100%;
+                flex-direction: row;
+            }
+
+            .contact-actions .button {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 700px) {
+            section {
+                padding: 78px 0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 130px;
+                padding-bottom: 80px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2.5px;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 72px;
+                left: 6%;
+                right: 6%;
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+
+                padding: 12px;
+
+                border: 1px solid var(--border);
+                border-radius: 14px;
+
+                background: rgba(9, 14, 24, 0.97);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 0;
+                padding: 13px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .projects,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-card {
+                padding: 34px 25px;
+            }
+
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .container {
+                width: min(92%, 1120px);
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .button {
+                width: 100%;
+            }
+
+            .terminal-content {
+                padding: 21px;
+                font-size: 12px;
+            }
+
+            .project-card,
+            .about-card,
+            .skill-group {
+                padding: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-container">
+
+            <a href="#beranda" class="logo">
+                <span class="logo-icon">&lt;/&gt;</span>
+                Yeeee<span>PRO</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#beranda">Beranda</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#project">Project</a>
+                <a href="#skill">Skill</a>
+                <a href="#kontak">Kontak</a>
+            </div>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Buka menu navigasi"
+            >
+                ☰
+            </button>
+
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="hero" id="beranda">
+            <div class="container hero-grid">
+
+                <div class="hero-content reveal">
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        Tersedia untuk project baru
+                    </div>
+
+                    <p class="hero-label">
+                        Developer Portfolio
+                    </p>
+
+                    <h1>
+                        Halo, saya<br>
+                        <span class="gradient-text">
+                            YeeeePRO.
+                        </span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Saya seorang developer yang berfokus pada
+                        pengembangan <strong>server SA-MP</strong>,
+                        <strong>website</strong>,
+                        <strong>Discord Bot</strong>, dan aplikasi
+                        berbasis <strong>Node.js</strong>.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#project"
+                            class="button button-primary"
+                        >
+                            Lihat Project
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="https://github.com/YeeeePRO"
+                            class="button button-secondary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub Saya
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="terminal reveal">
+
+                    <div class="terminal-header">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+
+                        <span class="terminal-title">
+                            developer.js
+                        </span>
+                    </div>
+
+                    <div class="terminal-content">
+
+                        <p class="terminal-line">
+                            <span class="terminal-purple">const</span>
+                            <span class="terminal-blue">developer</span>
+                            =
+                            {
+                        </p>
+
+                        <p class="terminal-line">
+                            &nbsp;&nbsp;name:
+                            <span class="terminal-green">
+                                "YeeeePRO"
+                            </span>,
+                        </p>
+
+                        <p class="terminal-line">
+                            &nbsp;&nbsp;role:
+                            <span class="terminal-green">
+                                "Developer"
+                            </span>,
+                        </p>
+
+                        <p class="terminal-line">
+                            &nbsp;&nbsp;skills:
+                            [
+                        </p>
+
+                        <p class="terminal-line terminal-green">
+                            &nbsp;&nbsp;&nbsp;&nbsp;"Pawn",
+                            "MySQL",
+                        </p>
+
+                        <p class="terminal-line terminal-green">
+                            &nbsp;&nbsp;&nbsp;&nbsp;"JavaScript",
+                            "Node.js"
+                        </p>
+
+                        <p class="terminal-line">
+                            &nbsp;&nbsp;],
+                        </p>
+
+                        <p class="terminal-line">
+                            &nbsp;&nbsp;passion:
+                            <span class="terminal-green">
+                                "Building useful systems"
+                            </span>
+                        </p>
+
+                        <p class="terminal-line">
+                            };
+                        </p>
+
+                        <br>
+
+                        <p class="terminal-line terminal-gray">
+                            // Ready to create something amazing
+                        </p>
+
+                        <p class="terminal-line">
+                            <span class="terminal-blue">developer</span>.
+                            startProject();
+                            <span class="terminal-cursor"></span>
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tentang">
+            <div class="container">
+
+                <div class="section-header reveal">
+                    <span class="section-label">
+                        Tentang Saya
+                    </span>
+
+                    <h2 class="section-title">
+                        Membangun ide menjadi
+                        sistem yang nyata.
+                    </h2>
+
+                    <p class="section-description">
+                        Saya senang mempelajari teknologi baru dan
+                        mengembangkan berbagai sistem untuk server game,
+                        website, bot, serta aplikasi desktop.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="glass-card about-card reveal">
+
+                        <p>
+                            Saya merupakan lulusan
+                            <strong>
+                                SMK Teknik Komputer dan Jaringan
+                            </strong>
+                            yang memiliki minat besar pada dunia
+                            pemrograman dan pengembangan sistem.
+                        </p>
+
+                        <p>
+                            Saya memiliki pengalaman dalam membuat
+                            <strong>gamemode SA-MP</strong>,
+                            sistem database MySQL, Discord Bot,
+                            website UCP, dan launcher game.
+                        </p>
+
+                        <p>
+                            Fokus saya adalah membuat sistem yang
+                            terstruktur, mudah digunakan, dan dapat
+                            dikembangkan kembali di masa depan.
+                        </p>
+
+                    </div>
+
+                    <div class="stats reveal">
+
+                        <div class="stat">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-text">
+                                Project utama
+                            </span>
+                        </div>
+
+                        <div class="stat">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-text">
+                                Teknologi dipelajari
+                            </span>
+                        </div>
+
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">
+                                Semangat belajar
+                            </span>
+                        </div>
+
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-text">
+                                Ide pengembangan
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="project">
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <span class="section-label">
+                        Project Pilihan
+                    </span>
+
+                    <h2 class="section-title">
+                        Beberapa project yang saya kerjakan.
+                    </h2>
+
+                    <p class="section-description">
+                        Kumpulan project pengembangan server game,
+                        aplikasi desktop, dan sistem Discord.
+                    </p>
+
+                </div>
+
+                <div class="projects">
+
+                    <article class="project-card reveal">
+
+                        <div class="project-top">
+                            <div class="project-icon">🎮</div>
+                            <span class="project-number">01</span>
+                        </div>
+
+                        <h3>SA-MP Roleplay Server</h3>
+
+                        <p>
+                            Gamemode roleplay dengan sistem faction,
+                            pekerjaan, kendaraan, fishing, inventory,
+                            administrasi, dan penyimpanan database MySQL.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Pawn</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">SA-MP</span>
+                        </div>
+
+                        <a
+                            class="project-link"
+                            href="https://github.com/YeeeePRO/Project-Server"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Lihat Repository →
+                        </a>
+
+                    </article>
+
+                    <article class="project-card reveal">
+
+                        <div class="project-top">
+                            <div class="project-icon">🚀</div>
+                            <span class="project-number">02</span>
+                        </div>
+
+                        <h3>SA-MP Custom Launcher</h3>
+
+                        <p>
+                            Launcher desktop untuk menghubungkan pemain
+                            ke server, menampilkan berita, status server,
+                            pembaruan file, dan pengaturan game.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Electron</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                        <a
+                            class="project-link"
+                            href="https://github.com/YeeeePRO/Project-Server"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Lihat Repository →
+                        </a>
+
+                    </article>
+
+                    <article class="project-card reveal">
+
+                        <div class="project-top">
+                            <div class="project-icon">🤖</div>
+                            <span class="project-number">03</span>
+                        </div>
+
+                        <h3>Discord Management Bot</h3>
+
+                        <p>
+                            Discord Bot untuk registrasi pemain,
+                            verifikasi akun, monitoring server,
+                            logging aktivitas, dan administrasi.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Discord.js</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+
+                        <a
+                            class="project-link"
+                            href="https://github.com/YeeeePRO/Project-Server"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Lihat Repository →
+                        </a>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="skill">
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <span class="section-label">
+                        Kemampuan
+                    </span>
+
+                    <h2 class="section-title">
+                        Teknologi yang saya gunakan.
+                    </h2>
+
+                    <p class="section-description">
+                        Beberapa bahasa pemrograman, database, dan
+                        alat pengembangan yang sedang saya pelajari
+                        dan gunakan.
+                    </p>
+
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="glass-card skill-group reveal">
+
+                        <h3>Bahasa dan Backend</h3>
+
+                        <div class="skill-list">
+                            <span class="skill">Pawn</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">TypeScript</span>
+                            <span class="skill">Node.js</span>
+                            <span class="skill">MySQL</span>
+                        </div>
+
+                    </div>
+
+                    <div class="glass-card skill-group reveal">
+
+                        <h3>Frontend dan Tools</h3>
+
+                        <div class="skill-list">
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">Git</span>
+                            <span class="skill">GitHub</span>
+                            <span class="skill">VS Code</span>
+                            <span class="skill">Electron</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak">
+            <div class="container">
+
+                <div class="contact-card reveal">
+
+                    <div class="contact-content">
+
+                        <span class="section-label">
+                            Kontak
+                        </span>
+
+                        <h2>
+                            Punya ide untuk dibuat?
+                        </h2>
+
+                        <p>
+                            Hubungi saya untuk berdiskusi mengenai
+                            project server SA-MP, website, Discord Bot,
+                            atau aplikasi lainnya.
+                        </p>
+
+                    </div>
+
+                    <div class="contact-actions">
+
+                        <a
+                            class="button button-primary"
+                            href="mailto:farizrmdhn4@gmail.com"
+                        >
+                            Kirim Email
+                        </a>
+
+                        <button
+                            class="button button-secondary copy-button"
+                            id="copyEmail"
+                            type="button"
+                        >
+                            Salin Email
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+
+            <span>
+                © <span id="year"></span>
+                <strong>YeeeePRO</strong>.
+                Semua hak dilindungi.
+            </span>
+
+            <span>
+                Dibuat dengan HTML, CSS, dan JavaScript.
+            </span>
+
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+        const copyEmailButton = document.getElementById("copyEmail");
+
+        menuButton.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+
+            menuButton.textContent =
+                navLinks.classList.contains("open") ? "✕" : "☰";
+        });
+
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                menuButton.textContent = "☰";
+            });
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        copyEmailButton.addEventListener("click", async () => {
+            const email = "farizrmdhn4@gmail.com";
+
+            try {
+                await navigator.clipboard.writeText(email);
+
+                copyEmailButton.textContent = "Email Tersalin ✓";
+
+                setTimeout(() => {
+                    copyEmailButton.textContent = "Salin Email";
+                }, 2000);
+            } catch (error) {
+                window.location.href = `mailto:${email}`;
+            }
+        });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        document.querySelectorAll(".reveal").forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+
+</body>
+</html>
